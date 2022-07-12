@@ -1,0 +1,27 @@
+<h3>Student-Data </h3>
+<form class="form-control" #studentForm="ngForm" (ngSubmit)="sendStudentForm(studentForm.value)">
+  <label> Student id:</label>
+  <input type="text" ngModel name="id" required />
+  <label> Name :</label>
+  <input type="text" ngModel name="name" required />
+  <label> Avatar :</label>
+  <input type="text" ngModel name="avatar" required />
+  <br /><br />
+  <button class="btn btn-primary" type="submit" [disabled]="studentForm.invalid">submit</button>
+</form>
+<br /><br />
+
+<table>
+  <tr>
+    <th>id</th>
+    <th>Name</th>
+    <th>Avatar</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let student of students">
+    <td>{{ student.id }}</td>
+    <td>{{ student.name }}</td>
+    <td>{{ student.avatar }}</td>
+    <td><button>delete</button> <button>Edit</button></td>
+  </tr>
+</table>
